@@ -8,11 +8,30 @@ export default function Intro({onDone}){
   const T=[],at=(ms,f)=>T.push(setTimeout(f,ms)),F=()=>fx.current,r=Math.random;
   const up=()=>{const[W,H]=F().size();const x=W*(.15+r()*.7);F().launch(x,x+(r()-.5)*120,H*(.12+r()*.35))};
   const ground=()=>{const[W,H]=F().size();F().pop(W*(.05+r()*.9),H*(.9+r()*.08))};
+
+  // Flower pots / fountains
   [[.22,200],[.5,1500],[.78,2700]].forEach(([p,ms])=>at(ms,()=>{const[W]=F().size();F().fountain(W*p)}));
+
+  // Rockets launching
   for(let i=0;i<13;i++)at(300+i*290,up);
+
+  // Ground crackers
   for(let i=0;i<14;i++)at(500+i*250,ground);
+
+  // 100-wala cracker sound at mid-point
+  at(2000,()=>sfx.hundredWala(60,3));
+
+  // Ground chakkar
+  at(1200,()=>sfx.chakkar(2));
+  at(2800,()=>sfx.chakkar(1.5));
+
+  // Grand reveal
   at(3900,()=>{setLive(true);sfx.fanfare();for(let i=0;i<9;i++)at2(i*130)});
   const at2=ms=>at(3900+ms,()=>{const[W,H]=F().size();F().burst(W*(.1+r()*.8),H*(.15+r()*.4),{n:110})});
+
+  // Sky shots finale
+  at(5500,()=>sfx.skyShot(3));
+
   at(7000,()=>setOut(true));at(7900,onDone);
   const unl=()=>unlock();
   addEventListener('pointerdown',unl,{once:true});addEventListener('keydown',unl,{once:true});

@@ -25,7 +25,7 @@ const products = [
  {id:15,name:'Colour Smoke Balls',category:'Colour Effects',price:249,old:369,img:'colour-balls.webp',off:'32% OFF'},
  {id:16,name:'Twinkling Shots',category:'Multi Shots',price:349,old:449,img:'twinkling-shots.webp',off:'22% OFF'}
 ];
-const asset = name => `/assets/${name}`;
+const asset = name => `${import.meta.env.BASE_URL}assets/${name}`;
 const money = n => `₹${n}`;
 const categories = [
  ['Rockets','joy-rocket.webp'],['Sparklers','sparklers.webp'],['Flower Pots','flower-pots.webp'],['Ground Chakkar','ground-chakkar.webp'],['Fountains','mercury-fountain.webp'],['Multi Shots','magic-shots.webp'],['Bijli Crackers','standard-deluxe.webp'],['Anar','flower-pots-deluxe.webp'],['Ladi','twinkling-shots.webp'],['Gift Boxes','dragon-fire.webp']
